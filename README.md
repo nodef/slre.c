@@ -1,7 +1,8 @@
 # SLRE: Super Light Regular Expressions
 
 SLRE is an ANSI C library that implements a subset of Perl&rsquo;s
-regular expression syntax. The main features of SLRE are:
+regular expression syntax, by [Aquefir](https://github.com/aquefir).
+The main features of SLRE are:
 
 * Written in strict ANSI C (C89)
 * Small size (compiled x86 code is about 5kB)
@@ -15,6 +16,28 @@ SLRE is perfect for tasks like parsing network requests, configuration
 files, user input, etc, when libraries like [PCRE](http://pcre.org) are
 too heavyweight for the given task. Developers of embedded systems would
 benefit most.
+
+## Installation
+
+Run:
+```bash
+$ npm i slre.c
+```
+
+And then include `slre.h` as follows:
+```c
+#include "node_modules/slre.c/slre.h"
+```
+
+You may also want to include `slre.c` as follows:
+```c
+#ifndef __SLRE_C__
+#define __SLRE_C__
+#include "node_modules/slre.c/slre.c"
+#endif
+```
+
+This will include both the function declaration and their definitions into a single file.
 
 ## Supported syntax
 
@@ -153,3 +176,10 @@ By submitting your changes for inclusion in this project, you agree to
 licence your work under these terms. The terms can be found in the
 `COPYING` file of this repository, or alternatively on the Web at
 <https://www.gnu.org/licenses/gpl-2.0.html>.
+
+<br>
+<br>
+
+
+[![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/slre.c)

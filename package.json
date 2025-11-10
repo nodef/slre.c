@@ -1,0 +1,15 @@
+{
+  "name": "slre.c",
+  "version": "1.2025.4",
+  "description": "Super Light Regular Expressions; Aquefir (2013).",
+  "keywords": ["c", "library", "regex", "regular expressions", "slre"],
+  "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/slre.c.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodef/slre.c/issues"
+  },
+  "homepage": "https://github.com/nodef/slre.c#readme"
+}
