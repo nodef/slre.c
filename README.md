@@ -17,27 +17,51 @@ files, user input, etc, when libraries like [PCRE](http://pcre.org) are
 too heavyweight for the given task. Developers of embedded systems would
 benefit most.
 
+<br>
+
 ## Installation
 
 Run:
-```bash
+
+```sh
 $ npm i slre.c
 ```
 
 And then include `slre.h` as follows:
+
 ```c
+// main.c
+#define SLRE_IMPLEMENTATION
 #include "node_modules/slre.c/slre.h"
+
+int main() { /* ... */ }
 ```
 
-You may also want to include `slre.c` as follows:
+And then compile with `clang` or `gcc` as usual.
+
+```bash
+$ clang main.c  # or, use gcc
+$ gcc   main.c
+```
+
+You may also use a simpler approach:
+
 ```c
-#ifndef __SLRE_C__
-#define __SLRE_C__
-#include "node_modules/slre.c/slre.c"
-#endif
+// main.c
+#define SLRE_IMPLEMENTATION
+#include <slre.h>
+
+int main() { /* ... */ }
 ```
 
-This will include both the function declaration and their definitions into a single file.
+If you add the path `node_modules/slre.c` to your compiler's include paths.
+
+```bash
+$ clang -I./node_modules/slre.c main.c  # or, use gcc
+$ gcc   -I./node_modules/slre.c main.c
+```
+
+<br>
 
 ## Supported syntax
 
@@ -67,6 +91,8 @@ This will include both the function declaration and their definitions into a sin
 | `[^...]` | Match any character but ones from set                     |
 
 Unicode support is still under development.
+
+<br>
 
 ## API
 
@@ -169,6 +195,8 @@ Found URL: [HTTPS://FOO.COM/x?b#c=tab1]
 Found URL: [http://example.com]
 ```
 
+<br>
+
 ## Contributing and copyright
 
 The SLRE is licenced under the GNU General Public License, version 2.
@@ -181,6 +209,6 @@ licence your work under these terms. The terms can be found in the
 <br>
 
 
+[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/aquefir/slre)
 [![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
 ![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/slre.c)
-[![SRC](https://img.shields.io/badge/src-repo-green?logo=Org)](https://github.com/aquefir/slre)
